@@ -26,7 +26,7 @@ import {subscribe , State} from '../model/store.js'
 
 
 export const CreateComponent = (props) => {
-  const { element , template:templateString} = props;
+  const { element , template:templateString , events , connect} = props;
   if (!element.includes("-")) {
     throw new Error("element must include a hyphen");
   }
@@ -43,9 +43,9 @@ template.innerHTML= templateString
       this.#inner.appendChild(node);
     }
 
-    connectedCallback() {
-      this.render();
-    }
+    // connectedCallback() {
+    //   this.render();
+    // }
   }
   customElements.define(element, component);
 
