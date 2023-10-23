@@ -1,3 +1,5 @@
+import {} from './'
+
 /**
  * @callback Handler 
  * @param {Event | CustomEvent} event
@@ -8,7 +10,7 @@
  * @prop {string} element
  * @prop {string} template
  * @prop {Record<string , Handler>} events
- * 
+ * @prop {} connect
  */
 
 /**
