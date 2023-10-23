@@ -1,4 +1,4 @@
-import {} from './'
+import {} from '../model/store.js'
 
 /**
  * @callback Handler 
