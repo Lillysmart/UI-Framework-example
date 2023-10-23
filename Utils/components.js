@@ -1,8 +1,14 @@
 /**
+ * @callback Handler 
+ * @param {Event | CustomEvent} event
+ */
+
+/**
  * @typedef {object} Props
  * @prop {string} element
  * @prop {string} template
  * @prop {Record<string , Handler>} events
+ * 
  */
 
 /**
