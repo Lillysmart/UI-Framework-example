@@ -2,7 +2,7 @@
  * @typedef {object} Props
  * @prop {string} element
  * @prop {string} template
- *
+ * @prop {Record<string , Handler>} events
  */
 
 /**
@@ -25,6 +25,7 @@ template.innerHTML= templateString
     #inner = this.attachShadow({ mode: "open" });
     constructor() {
       super();
+      const node = template.content.cloneNode(true)
       this.#inner.appendChild(node);
     }
 
