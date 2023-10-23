@@ -1,4 +1,4 @@
-import {} from '../model/store.js'
+import {subscribe , State} from '../model/store.js'
 
 /**
  * @callback Handler 
@@ -6,11 +6,17 @@ import {} from '../model/store.js'
  */
 
 /**
+ * @callback Connect
+ * @param {State} prev
+ * @param {State} next
+ */
+
+/**
  * @typedef {object} Props
  * @prop {string} element
  * @prop {string} template
  * @prop {Record<string , Handler>} events
- * @prop {} connect
+ * @prop {Connect} connect
  */
 
 /**
