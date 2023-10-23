@@ -37,15 +37,26 @@ template.innerHTML= templateString
 
   class component extends HTMLElement {
     #inner = this.attachShadow({ mode: "open" });
+    #unsubscribe= null
+
     constructor() {
       super();
       const node = template.content.cloneNode(true)
       this.#inner.appendChild(node);
     }
 
-    // connectedCallback() {
-    //   this.render();
-    // }
+     connectedCallback() {
+      if (events){
+        Object.entries(events).forEach(([key, handler])=>{
+      this.#inner.addEventListener([key, handler])
+        })
+      }
+     if (connect){
+this.#unsubscribe = ((prev , next)=>{
+  connect (prev, next)
+})
+     }
+     }
   }
   customElements.define(element, component);
 
