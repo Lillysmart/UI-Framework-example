@@ -1,5 +1,6 @@
 import { CreateComponent } from "../Utils/components.js";
-import { getState } from "../model/store.js";
+import { getState , dispatch} from "../model/store.js";
+import { addTask } from "../model/actions.js";
 
 CreateComponent({
   element: "td-app",
@@ -10,11 +11,11 @@ CreateComponent({
      
      if (event.target instanceof HTMLFormElement) {
        const formData = new FormData(event.target);
-       const name = formData.get('todo'); // Use the 'name' attribute of the input element
+       const {title} = formData.get('todo'); // Use the 'name' attribute of the input element
        event.target.reset();
  
-    
-         console.log(getState)
+    dispatch(addTask({title}))
+         console.log(getState())
        
      }
    },
@@ -23,6 +24,12 @@ CreateComponent({
 
   connect :(prev , next , getHtml)=>{
 
+   const nextTasks =Object.values(next.tasks)
+   const prevTasksIds =Object.keys()
+const [ul ]= getHtml("list")
+const li= document.createElement("li")
+li.innerText=``
+ul.appendChild(li)
   },
   template: `
     <form data-key="add">
