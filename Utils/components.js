@@ -1,9 +1,14 @@
 import {subscribe , State} from '../model/store.js'
+/**
+ * @param {}
+ */
 
 /**
  * @callback Handler 
  * @param {Event | CustomEvent} event
  */
+
+
 
 /**
  * @callback Connect
