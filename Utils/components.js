@@ -35,6 +35,8 @@ import { subscribe, State } from "../model/store.js";
  */
 const nodeListToArray =(NodeList)=>{
  const result= Array.from(NodeList)
+
+ return result
 }
 
 /**
@@ -54,6 +56,7 @@ export const CreateComponent = (props) => {
   class component extends HTMLElement {
     #inner = this.attachShadow({ mode: "open" });
     #unsubscribe = null;
+    #listeners =
 
     constructor() {
       super();
@@ -64,14 +67,15 @@ export const CreateComponent = (props) => {
     connectedCallback() {
 const getHtml = (key , strict)=>{
 const result =this.#inner.querySelector(`[data-key ="${key}"]`)
-if (strict !==false && result.length <= 0){
+if (strict !==false && results.length <= 0){
 
   throw new Error (`"no elements found with data key ="${key} "`)
 }
-// return result
+ return nodeListToArray(results) 
 }
 
       if (events) {
+        
         Object.entries(events).forEach(([key, handler]) => {
           this.#inner.addEventListener(key, handler); // Corrected code
         });
