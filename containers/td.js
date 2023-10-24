@@ -4,11 +4,13 @@ CreateComponent({
   element: "td-app",
 
   events: {
-    click: (event) => {
+    click: (event , getHtml) => {
       console.log(event.target);
     },
   },
-  template: (
+
+  connect: (prev , next , getHtml),
+  template: `
     <form data-key="add">
       <label>
         <span> Enter your Name:</span>
@@ -18,6 +20,6 @@ CreateComponent({
     </form>
     <ul data-key="list">
 
-    </ul>
-  ),
+    </ul>`
+  ,
 });
