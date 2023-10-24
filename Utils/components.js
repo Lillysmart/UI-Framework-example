@@ -29,15 +29,15 @@ import { subscribe, State } from "../model/store.js";
  */
 
 /**
- * 
- * @param {any} NodeList 
+ *
+ * @param {any} NodeList
  * @returns {Array<HTMLElement>}
  */
-const nodeListToArray =(NodeList)=>{
- const result= Array.from(NodeList)
+const nodeListToArray = (NodeList) => {
+  const result = Array.from(NodeList);
 
- return result
-}
+  return result;
+};
 
 /**
  *
@@ -56,7 +56,7 @@ export const CreateComponent = (props) => {
   class component extends HTMLElement {
     #inner = this.attachShadow({ mode: "open" });
     #unsubscribe = null;
-    #listeners =
+    #listeners = []
 
     constructor() {
       super();
@@ -65,43 +65,36 @@ export const CreateComponent = (props) => {
     }
 
     connectedCallback() {
-const getHtml = (key , strict)=>{
-const result =this.#inner.querySelector(`[data-key ="${key}"]`)
-if (strict !==false && results.length <= 0){
-
-  throw new Error (`"no elements found with data key ="${key} "`)
-}
- return nodeListToArray(results) 
-}
+      const getHtml = (key, strict) => {
+        const result = this.#inner.querySelector(`[data-key ="${key}"]`);
+        if (strict !== false && results.length <= 0) {
+          throw new Error(`"no elements found with data key ="${key} "`);
+        }
+        return nodeListToArray(results);
+      };
 
       if (events) {
-        
         Object.entries(events).forEach(([key, handler]) => {
-          const wrapper = (event)=>{
-handler (event, getHtml) }
-         this.#listeners .push({key ,wrapper})
+          const wrapper = (event) => {
+            handler(event, getHtml);
+          };
+          this.#listeners.push({ key, wrapper });
           this.#inner.addEventListener(key, handler); // Corrected code
         });
       }
 
       if (connect) {
         const wrapper = (prev, next) => {
-          connect(prev,next, getHtml)
+          connect(prev, next, getHtml);
         };
-
-      }
         this.#unsubscribe = (connect) => {
           connect(prev, next);
         };
       }
     }
     disconnectedCallback() {
-
-
       if (events) {
-
         this.#listeners.forEach(([key, handler]) => {
-
           this.#inner.removeEventListener([key, handler]);
         });
       }
