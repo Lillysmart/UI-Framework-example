@@ -1,11 +1,15 @@
 import {subscribe , State} from '../model/store.js'
 /**
- * @param {}
+ * @callback Gethtml
+ * @param {string} key
+ * @param {boolean} [strict]
+ * @returns {Array<HTMLElement>}
  */
 
 /**
  * @callback Handler 
  * @param {Event | CustomEvent} event
+ * @param  {Gethtml} getHtml
  */
 
 
