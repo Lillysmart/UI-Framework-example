@@ -1,35 +1,36 @@
 import { CreateComponent } from "../Utils/components.js";
-import { getState , dispatch} from "../model/store.js";
+import { getState, dispatch } from "../model/store.js";
 import { addTask } from "../model/actions.js";
 
 CreateComponent({
   element: "td-app",
 
   events: {
-   submit: (event) => {
-     event.preventDefault();
-     
-     if (event.target instanceof HTMLFormElement) {
-       const formData = new FormData(event.target);
-       const {title} = formData.get('todo'); // Use the 'name' attribute of the input element
-       event.target.reset();
- 
-    dispatch(addTask({title}))
-         console.log(getState())
-       
-     }
-   },
- },
- 
+    submit: (event) => {
+      event.preventDefault();
 
-  connect :(prev , next , getHtml)=>{
+      if (event.target instanceof HTMLFormElement) {
+        const formData = new FormData(event.target);
+        const { title } = formData.get("todo"); // Use the 'name' attribute of the input element
+        event.target.reset();
 
-   const nextTasks =Object.values(next.tasks)
-   const prevTasksIds =Object.keys()
-const [ul ]= getHtml("list")
-const li= document.createElement("li")
-li.innerText=``
-ul.appendChild(li)
+        dispatch(addTask({ title }));
+        console.log(getState());
+      }
+    },
+  },
+
+  connect: (prev, next, getHtml) => {
+    const nextTasks = Object.values(next.tasks);
+    const prevTasksIds = Object.keys(prev.tasks);
+
+    nextTasks.forEach((item) => {});
+
+    
+    const [ul] = getHtml("list");
+    const li = document.createElement("li");
+    li.innerText = ``;
+    ul.appendChild(li);
   },
   template: `
     <form data-key="add">
@@ -41,6 +42,5 @@ ul.appendChild(li)
     </form>
     <ul data-key="list">
 
-    </ul>`
-  ,
+    </ul>`,
 });
