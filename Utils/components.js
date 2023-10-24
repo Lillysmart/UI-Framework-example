@@ -96,8 +96,12 @@ handler (event, getHtml) }
       }
     }
     disconnectedCallback() {
+
+
       if (events) {
-        Object.entries(events).forEach(([key, handler]) => {
+
+        this.#listeners.forEach(([key, handler]) => {
+
           this.#inner.removeEventListener([key, handler]);
         });
       }
