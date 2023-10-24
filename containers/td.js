@@ -23,6 +23,9 @@ CreateComponent({
       }
   const response = new FormData(event.target)
   const {name} =Object.fromEntries(response)
+
+  event.target.reset()
+  console.log(name)
      }
     },
   },
