@@ -28,8 +28,13 @@ import { subscribe, State } from "../model/store.js";
  * @prop {Connect} connect
  */
 
+/**
+ * 
+ * @param {any} NodeList 
+ * @returns {Array<HTMLElement>}
+ */
 const nodeListToArray =(NodeList)=>{
-  
+ const result= Array.from(NodeList)
 }
 
 /**
