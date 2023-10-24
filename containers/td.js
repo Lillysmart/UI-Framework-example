@@ -13,12 +13,9 @@ CreateComponent({
         const response = new FormData(event.target);
 
         const { title } = Object.fromEntries(response);
-
-        if (title !== undefined) {
+        event.target.reset()
           dispatch(addTask({ title}));
-        } else {
-          console.error('Title is undefined');
-        }
+      
         
       }
     },
