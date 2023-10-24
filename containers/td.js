@@ -13,10 +13,8 @@ CreateComponent({
         const response = new FormData(event.target);
 
         const { title } = Object.fromEntries(response);
-        event.target.reset()
-          dispatch(addTask({ title}));
-      
-        
+        event.target.reset();
+        dispatch(addTask({ title }));
       }
     },
   },
@@ -24,20 +22,21 @@ CreateComponent({
   connect: (prev, next, getHtml) => {
     const nextTasks = Object.values(next.tasks);
     const prevTasksIds = Object.keys(prev.tasks);
+    const nextTasksId = Object.keys(next, tasks);
+    const [ul] = getHtml("list");
 
     nextTasks.forEach((item) => {
-      const isNew= !prevTasksIds.includes(item.id)
-
-      if (isNew){
-
-         const [ul] = getHtml("list");
-         const li = document.createElement("li");
-         li.innerText = item.title;
-         ul.appendChild(li);
-      }
+      if (prevTasksIds.includes(item.id)) return;
+      const li = document.createElement("li");
+      li.dataset.id = item.id
+      li.innerText = item.title;
+      ul.appendChild(li);
     });
 
-
+    prevTasksIds.forEach((item) => {
+      if (nextTasksId.includes(item.id)) return;
+      const node =ul.querySelector(`[data-id=${id}]`)
+    });
   },
   template: `
     <form data-key="add">
