@@ -77,6 +77,9 @@ if (strict !==false && results.length <= 0){
       if (events) {
         
         Object.entries(events).forEach(([key, handler]) => {
+          const wrapper = (event)=>{
+handler (event, getHtml)
+          }
           this.#inner.addEventListener(key, handler); // Corrected code
         });
       }
