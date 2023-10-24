@@ -10,12 +10,16 @@ CreateComponent({
       event.preventDefault();
 
       if (event.target instanceof HTMLFormElement) {
-        const formData = new FormData(event.target);
-        const { title } = formData.get("todo"); // Use the 'name' attribute of the input element
-        event.target.reset();
+        const response = new FormData(event.target);
 
-        dispatch(addTask({ title }));
-        console.log(getState());
+        const { title } = Object.fromEntries(response);
+
+        if (title !== undefined) {
+          dispatch(addTask({ title}));
+        } else {
+          console.error('Title is undefined');
+        }
+        
       }
     },
   },
@@ -24,13 +28,19 @@ CreateComponent({
     const nextTasks = Object.values(next.tasks);
     const prevTasksIds = Object.keys(prev.tasks);
 
-    nextTasks.forEach((item) => {});
+    nextTasks.forEach((item) => {
+      const isNew= !prevTasksIds.includes(item.id)
 
-    
-    const [ul] = getHtml("list");
-    const li = document.createElement("li");
-    li.innerText = ``;
-    ul.appendChild(li);
+      if (isNew){
+
+         const [ul] = getHtml("list");
+         const li = document.createElement("li");
+         li.innerText = item.title;
+         ul.appendChild(li);
+      }
+    });
+
+
   },
   template: `
     <form data-key="add">
