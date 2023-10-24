@@ -78,15 +78,18 @@ if (strict !==false && results.length <= 0){
         
         Object.entries(events).forEach(([key, handler]) => {
           const wrapper = (event)=>{
-handler (event, getHtml)
-          }
+handler (event, getHtml) }
+         this.#listeners .push({key ,wrapper})
           this.#inner.addEventListener(key, handler); // Corrected code
         });
       }
+
       if (connect) {
         const wrapper = (prev, next) => {
           connect(prev,next, getHtml)
         };
+
+      }
         this.#unsubscribe = (connect) => {
           connect(prev, next);
         };
