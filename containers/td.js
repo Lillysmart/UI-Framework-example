@@ -1,34 +1,25 @@
 import { CreateComponent } from "../Utils/components.js";
+import { getState } from "../model/store.js";
 
 CreateComponent({
   element: "td-app",
 
   events: {
-   submit: (event , getHtml) => {
-     event.preventDefault()
-     /**
-      * @type {any}
-      */
-     const eventAsAny = event
-
-     /**
-      * @type {string | undefined} 
-      */
-     const key=eventAsAny?.target?.dataset?.key
-
-     if (key === "add"){
-
-      if (!(event.target instanceof HTMLFormElement)){
-         throw new Error  ("is required to be a form")
-      }
-  const response = new FormData(event.target)
-  const {name} =Object.fromEntries(response)
-
-  event.target.reset()
-  console.log(name)
+   submit: (event) => {
+     event.preventDefault();
+     
+     if (event.target instanceof HTMLFormElement) {
+       const formData = new FormData(event.target);
+       const name = formData.get('todo'); // Use the 'name' attribute of the input element
+       event.target.reset();
+ 
+    
+         console.log(getState)
+       
      }
-    },
-  },
+   },
+ },
+ 
 
   connect :(prev , next , getHtml)=>{
 
