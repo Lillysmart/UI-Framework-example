@@ -46,10 +46,11 @@ template.innerHTML= templateString
     }
 
      connectedCallback() {
-      if (events){
-        Object.entries(events).forEach(([key, handler])=>{
-      this.#inner.addEventListener([key, handler])
-        })
+      if (events) {
+        Object.entries(events).forEach(([key, handler]) => {
+          this.#inner.addEventListener(key, handler); // Corrected code
+        });
+      
       }
      if (connect){
 this.#unsubscribe = (connect)=>{
