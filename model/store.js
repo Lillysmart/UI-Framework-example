@@ -12,7 +12,7 @@ export const Task={}
 /**
  * @typedef {'A-Z' |'Z-A'} sorting
  */
-export const sorting={}
+export const Sorting={}
 
 /**
  *@typedef {object} Filters

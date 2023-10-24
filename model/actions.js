@@ -48,7 +48,7 @@ export const Action ={}
  * @param {string} props.title
  * @returns {AddTask}
  */
-export const AddTask =(props)=>{
+export const addTask =(props)=>{
 
     const {title}=props
     return {
@@ -74,7 +74,7 @@ type:"TOOGLE_ADD"
  *
  */
 export const changeSort =()=>{
-    const {sorting}= 
+    const { sorting } = props;
 return {
     sorting,
     type:"CHANGE_SORT"
