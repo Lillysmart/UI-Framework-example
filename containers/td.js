@@ -18,8 +18,11 @@ CreateComponent({
 
      if (key === "add"){
 
-      
+      if (!(event.target instanceof HTMLFormElement)){
+         throw new Error  ("is required to be a form")
+      }
   const response = new FormData(event.target)
+  const {name} =Object.fromEntries(response)
      }
     },
   },
