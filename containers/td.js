@@ -16,8 +16,8 @@ CreateComponent({
       </label>
       <button type="submit"></button>
     </form>
-    <ul>
-      
+    <ul data-key="list">
+
     </ul>
   ),
 });
