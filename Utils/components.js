@@ -52,11 +52,20 @@ template.innerHTML= templateString
         })
       }
      if (connect){
-this.#unsubscribe = ((prev , next)=>{
+this.#unsubscribe = (connect)=>{
   connect (prev, next)
-})
+}
      }
      }
+     disconnectedCallback(){
+      if (events){
+        Object.entries(events).forEach(([key, handler])=>{
+      this.#inner.removeEventListener([key, handler])
+        })
+     }
+     if (this.#unsubscribe ){
+      this.#unsubscribe()
+      }}
   }
   customElements.define(element, component);
 
