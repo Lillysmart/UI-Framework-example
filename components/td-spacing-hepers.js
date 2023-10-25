@@ -1,3 +1,4 @@
+import {mergeArrays} from "/utils/arrays.js"
 
 /**
  * @typedef {'XS' |'S'| 'M' |'L' | 'XL'} Measurement
@@ -16,28 +17,38 @@ const MEASUREMENTS = ["XS", "S", "M", "L", "XL"];
 const DIRECTIONS = ["left", "right", "top", "buttom"];
 
 /**
- * @callback Join
- * @param {string} value1
- * @param {string} value2
+ * @type  { Record<Measurement, String>}
  */
+const MEASUREMENTS_MAP = {
+  XS:"--sl-spacing-2x-small",
+  S: "--sl-spacing-x-small",
+  M: "--sl-spacing-medium",
+  L: "--sl-spacing-x-large",
+  XL:"--sl-spacing-3x-large",
+};
 
-/**
- * @param {object} props
- * @param {Array<string>} props.array1 
- * @param {Array<string>} props.array2 
- * @param {Join} [props.join]
-  */
-const mergeArrays =(props)=>{
-const {array1, array2 ,join} = props
+
+const handlerJoin = (direction, measurement) => 
+  `
+  :host([${direction}= "${measurement}"]) div{
+    padding-${direction}: var(${MEASUREMENTS_MAP[measurement]})
 }
 
-export const templateString = DIRECTIONS.map((singleDirection) => {
-  const result = MEASUREMENTS.map((singleMeasurement) => {
-    return `${singleDirection} =${singleMeasurement}`;
-  });
-  return result;
-}).flat()
-.map(attribute=>`:host([${attribute}])`)
-.map()
+`
+export const css = mergeArrays({
+  array1: DIRECTIONS,
+  array2: MEASUREMENTS,
+  join: handlerJoin,
+}).join("")
 
-console.log(templateString);
+
+ export const templateString= `
+ <style>${css}</style>
+<div>
+  <slot>
+
+  </slot>
+</div>
+
+ `
+console.log(templateString)

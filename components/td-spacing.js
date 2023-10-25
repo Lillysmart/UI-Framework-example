@@ -1,10 +1,12 @@
 import { templateString } from "./td-spacing-hepers.js";
+
+
 const template = document.createElement("template");
 
 
 template.innerHTML = /*html*/ `
 <style>
-:host([left="XS"]){
+:host([left="XL"]){
     div{
 
     }
@@ -25,8 +27,13 @@ template.innerHTML = /*html*/ `
  *  @attr {'XS' |'S'| 'M' |'L' | 'XL'} bottom
  */
 export class Spacing extends HTMLElement {
+
+  #inner = this.attachShadow({mode:'closed'})
   constructor() {
     super();
+    const node = template.content.cloneNode(true)
+
+    this.#inner.appendChild(node)
   }
 }
 customElements.define("td-spacing", Spacing);
