@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(---sl-font-sans); /* Change the font-family */
+    padding: 0;
+    margin: 0;                     /* Remove default padding */
+  }
