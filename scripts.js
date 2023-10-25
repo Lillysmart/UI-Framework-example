@@ -1,7 +1,10 @@
-import { render } from "./libs/lit-html.js";
-import { app } from "./view/app.js";
+ import "./components/td-spacing.js"
+ 
 import { dispatch, getState, subscribe } from "./model/store.js";
 import { addTask } from "./model/actions.js";
+
+import { render } from "./libs/lit-html.js";
+import { app } from "./view/app.js";
 
 const state = getState();
 const initialRender = app(getState());
