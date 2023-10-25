@@ -12,7 +12,7 @@ export const app =()=>{
                 <span> New Task</span>
             <input/>
             </label>
-            <button> Add Task</button>
+            <button type="submit"> Add Task</button>
         </form>
     </Header>
     <main>
