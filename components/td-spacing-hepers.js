@@ -22,12 +22,13 @@ const DIRECTIONS = ["left", "right", "top", "buttom"];
  */
 
 /**
- * 
- * @param {Array<string>} array1 
- * @param {Array<string>} array2 
- * @param {Join} [join]
-const mergeArrays =(array1 , array2)=>{
-
+ * @param {object} props
+ * @param {Array<string>} props.array1 
+ * @param {Array<string>} props.array2 
+ * @param {Join} [props.join]
+  */
+const mergeArrays =(props)=>{
+const {array1, array2 ,join} = props
 }
 
 export const templateString = DIRECTIONS.map((singleDirection) => {
