@@ -1,29 +1,5 @@
 const template = document.createElement("template");
 
-/**
- * @typedef {'XS' |'S'| 'M' |'L' | 'XL'} Measurement
- * @typedef {'left' | 'right' | 'top' | 'buttom'} Direction
- */
-
-/**
- * @type {Array <Measurement>}
- */
-const MEASUREMENTS = ["XS", "S", "M", "L", "XL"];
-
-/**
- * @type { Array <Direction>}
- */
-
-const DIRECTIONS = ["left", "right", "top", "buttom"];
-
-const templateString = DIRECTIONS.map((singleDirection) => {
-  const result = MEASUREMENTS.map((singleMeasurement) => {
-    return `${singleDirection} =${singleMeasurement}`;
-  });
-  return result;
-}).flat();
-
-console.log(templateString);
 
 template.innerHTML = /*html*/ `
 <style>
