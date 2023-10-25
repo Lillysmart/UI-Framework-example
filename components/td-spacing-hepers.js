@@ -15,6 +15,21 @@ const MEASUREMENTS = ["XS", "S", "M", "L", "XL"];
 
 const DIRECTIONS = ["left", "right", "top", "buttom"];
 
+/**
+ * @callback Join
+ * @param {string} value1
+ * @param {string} value2
+ */
+
+/**
+ * 
+ * @param {Array<string>} array1 
+ * @param {Array<string>} array2 
+ * @param {Join} [join]
+const mergeArrays =(array1 , array2)=>{
+
+}
+
 export const templateString = DIRECTIONS.map((singleDirection) => {
   const result = MEASUREMENTS.map((singleMeasurement) => {
     return `${singleDirection} =${singleMeasurement}`;
