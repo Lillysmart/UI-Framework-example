@@ -22,16 +22,16 @@ export const Sorting={}
 /**
  * @typedef {object} State
  * @prop {'idle' | 'adding'} phase
- * @prop {Record <string, Task>} tasks
+ * @prop {Record <string,Task>} tasks
  * @prop {Filters} filters
  */
- export const State =[{
+ export const State ={
 filters:{
     sorting:'A-Z'
 },
 phase:"idle",
 tasks:{}
- }]
+ }
 /**
  * @callback GetState
  * @returns {State}
