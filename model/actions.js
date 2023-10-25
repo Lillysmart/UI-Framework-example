@@ -71,12 +71,12 @@ type:"TOOGLE_ADD"
  * @param {object} props
  * @param {Sorting} props.sorting
  * @returns {ChangeSort}
- *
  */
-export const changeSort =()=>{
+export const changeSort = (props) => {
     const { sorting } = props;
-return {
-    sorting,
-    type:"CHANGE_SORT"
-}
-}
+    return {
+      sorting,
+      type: "CHANGE_SORT"
+    };
+  };
+  
