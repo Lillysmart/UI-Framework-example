@@ -25,12 +25,13 @@ export const Sorting={}
  * @prop {Record <string,Task>} tasks
  * @prop {Filters} filters
  */
+
  export const State ={
 filters:{
     sorting:'A-Z'
 },
 phase:"idle",
-tasks:{}
+tasks:{ },
  }
 /**
  * @callback GetState
