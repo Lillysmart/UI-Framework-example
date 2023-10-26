@@ -17,26 +17,25 @@ export const app = (state) => {
     <sl-dialog open label="New Task">
       <form>
         <td-spacing bottom="XL">
-          <sl-input filled name="title" label="Title"  required></sl-input>
-        
+          <sl-input filled name="title" label="Title" required></sl-input>
 
-        <td-spacing bottom="S">
-          <sl-input filled name="due" label="Due Date"  required></sl-input>
+          <td-spacing bottom="S">
+            <sl-input filled name="due" label="Due Date" required></sl-input>
+          </td-spacing>
+
+          <td-spacing bottom="S">
+            <sl-select label="urgency" value="Normal" filled>
+              <sl-option value="High">High </sl-option>
+              <sl-option value="Normal">Normal</sl-option>
+              <sl-option value="Low">Low</sl-option>
+            </sl-select>
+          </td-spacing>
         </td-spacing>
-
-
-        <td-spacing bottom="S">
-          <sl-input filled name="urgency" label="urgency"  required></sl-input>
-        </td-spacing>
-
-        </td-spacing>
-
 
         <div slot="footer">
           <sl-button>Cancel</sl-button>
           <sl-button variant="primary">Save</sl-button>
         </div>
-
       </form>
     </sl-dialog>
 
