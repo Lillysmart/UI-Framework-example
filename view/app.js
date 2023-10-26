@@ -1,5 +1,9 @@
+//@ts-check
+
 import { html } from "../libs/lit-html.js";
-import { State } from "../model/store.js";
+import { State  } from "../model/store.js";
+//import { phase } from "../model/reduces.js";
+
 
 /**
  * @param {State} state
@@ -15,12 +19,11 @@ export const app = (state) => {
   //const taskAsArray = Array.isArray(tasks) ? tasks : Object.values(tasks);
   return html` <div>
     <sl-dialog open label="New Task">
-      <form>
         <td-spacing bottom="XL">
           <sl-input filled name="title" label="Title" required></sl-input>
 
           <td-spacing bottom="S">
-            <sl-input filled name="due" label="Due Date" required></sl-input>
+            <sl-input  type="Date" filled name="due" label="Due Date"  required></sl-input>
           </td-spacing>
 
           <td-spacing bottom="S">
@@ -33,8 +36,8 @@ export const app = (state) => {
         </td-spacing>
 
         <div slot="footer">
-          <sl-button>Cancel</sl-button>
-          <sl-button variant="primary">Save</sl-button>
+          <sl-button type="button">Cancel</sl-button>
+          <sl-button  type="submit" variant="primary">Save</sl-button>
         </div>
       </form>
     </sl-dialog>
