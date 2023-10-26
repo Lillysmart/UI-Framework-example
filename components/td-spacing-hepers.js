@@ -1,4 +1,4 @@
-import {mergeArrays} from "/utils/arrays.js"
+import { mergeArrays } from "/utils/arrays.js";
 
 /**
  * @typedef {'XS' |'S'| 'M' |'L' | 'XL'} Measurement
@@ -6,49 +6,44 @@ import {mergeArrays} from "/utils/arrays.js"
  */
 
 /**
- * @type {Array <Measurement>}
+ * @type {Array<Measurement>}
  */
 const MEASUREMENTS = ["XS", "S", "M", "L", "XL"];
 
 /**
- * @type { Array <Direction>}
+ * @type {Array<Direction>}
  */
-
 const DIRECTIONS = ["left", "right", "top", "buttom"];
 
 /**
- * @type  { Record<Measurement, String>}
+ * @type {Record<Measurement, string>}
  */
 const MEASUREMENTS_MAP = {
-  XS:"--sl-spacing-2x-small",
+  XS: "--sl-spacing-2x-small",
   S: "--sl-spacing-x-small",
   M: "--sl-spacing-medium",
   L: "--sl-spacing-x-large",
-  XL:"--sl-spacing-3x-large",
+  XL: "--sl-spacing-3x-large",
 };
 
+const handlerJoin = (direction, measurement) => `
+  :host([${direction}= "${measurement}"]) div {
+    padding-${direction}: var(${MEASUREMENTS_MAP[measurement]});
+  }
+`;
 
-const handlerJoin = (direction, measurement) => 
-  `
-  :host([${direction}= "${measurement}"]) div{
-    padding-${direction}: var(${MEASUREMENTS_MAP[measurement]})
-}
-
-`
-export const css = mergeArrays({
+const css = mergeArrays({
   array1: DIRECTIONS,
   array2: MEASUREMENTS,
   join: handlerJoin,
-}).join("")
+}).join("");
 
-
- export const templateString= `
- <style>${css}</style>
+export const templateString = `
+<style>${css}</style>
 <div>
-  <slot>
-
-  </slot>
+  <slot></slot>
 </div>
+`;
 
- `
-console.log(templateString)
+console.log(css);
+console.log(templateString);

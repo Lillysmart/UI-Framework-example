@@ -11,7 +11,7 @@
  * @param {Array<string>} props.array2
  * @param {Join} [props.join]
  */
-const mergeArrays = (props) => {
+ export const mergeArrays = (props) => {
     const { array1, array2, join } = props;
   
     const result = array1.flatMap((array1Value) => {
