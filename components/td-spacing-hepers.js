@@ -2,7 +2,7 @@ import { mergeArrays } from "/utils/arrays.js";
 
 /**
  * @typedef {'XS' |'S'| 'M' |'L' | 'XL'} Measurement
- * @typedef {'left' | 'right' | 'top' | 'buttom'} Direction
+ * @typedef {'left' | 'right' | 'top' | 'bottom'} Direction
  */
 
 /**
@@ -13,7 +13,7 @@ const MEASUREMENTS = ["XS", "S", "M", "L", "XL"];
 /**
  * @type {Array<Direction>}
  */
-const DIRECTIONS = ["left", "right", "top", "buttom"];
+const DIRECTIONS = ["left", "right", "top", "bottom"];
 
 /**
  * @type {Record<Measurement, string>}

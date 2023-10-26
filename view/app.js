@@ -14,21 +14,17 @@ export const app = (state) => {
 
   //const taskAsArray = Array.isArray(tasks) ? tasks : Object.values(tasks);
   return html` <div>
-    <td-spacing left="XL" right="XL">123</td-spacing>
-    <td-spacing   left="XL" top="L">123 </td-spacing>
-    <td-spacing top="XL" > 123</td-spacing>
-
-    <sl-dialog open>
+    <sl-dialog open label="New Task">
       <form>
-        <td-spacing bottom="XL">
-          <sl-input filled name="title" label="Task Name" required></sl-input>
+        <td-spacing bottom="L">
+          <sl-input filled name="title" label="Task Name"  required></sl-input>
         </td-spacing>
 
-        
+        <div slot="footer">
           <sl-button>Cancel</sl-button>
-
           <sl-button variant="primary">Save</sl-button>
-      
+        </div>
+
       </form>
     </sl-dialog>
 
