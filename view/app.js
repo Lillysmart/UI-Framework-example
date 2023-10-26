@@ -16,8 +16,8 @@ export const app = (state) => {
   return html` <div>
     <sl-dialog open label="New Task">
       <form>
-        <td-spacing bottom="L">
-          <sl-input filled name="title" label="Task Name"  required></sl-input>
+        <td-spacing bottom="XL">
+          <sl-input filled name="title" label="Name"  required></sl-input>
         </td-spacing>
 
         <div slot="footer">
